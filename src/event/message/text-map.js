@@ -1,5 +1,5 @@
-import { generateGptResponse } from './generateGptResponse.js';
-import { get } from '../../request.js';
+// eslint-disable-next-line import/named, no-unused-vars
+import start from './timer.js';
 
 // 受け取ったメッセージと返信するメッセージ(を返す関数)をマッピング
 export const messageMap = {
@@ -7,14 +7,11 @@ export const messageMap = {
     type: 'text',
     text: 'こんにちは！これからあなたの生活をサポートします！',
   }),
-  複数メッセージ: () => ([
-    {
+  start: async () => {
+    await start();
+    return {
       type: 'text',
-      text: 'Hello, user',
-    },
-    {
-      type: 'text',
-      text: 'May I help you?',
+      text: '計測をスタートしました！',
     },
   ]),
   テスト: async () => {
