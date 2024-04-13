@@ -1,13 +1,13 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 import mysql from 'mysql2';
 
 // Create a connection to the database
 export const connection = mysql.createConnection({
-  host: '127.0.0.1', // localhostを127.0.0.1に変更します
-  user: 'root',
-  password: 'your_password',
-  database: 'your_database',
-  port: 3306,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 connection.connect((error) => {
