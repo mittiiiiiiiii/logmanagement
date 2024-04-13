@@ -7,6 +7,10 @@ export const messageMap = {
     type: 'text',
     text: 'こんにちは！これからあなたの生活をサポートします！',
   }),
+  おはよう: () => ({
+    type: 'text',
+    text: 'こんにちは！これからあなたの生活をサポートします！',
+  }),
   計測: ()=>({
     type:'text',
     text:'tap to start',
