@@ -14,9 +14,9 @@ export const pause = () => {
 
 };
 
-export const start = () => {
+export default function start() {
   // eslint-disable-next-line new-cap
-  const starttime = new Date.now();
+  const starttime = Date.now();
   connection.query(
     'insert into measure (start) values ?',
     [starttime / 1000],
@@ -26,7 +26,7 @@ export const start = () => {
       }
     },
   );
-};
+}
 
 export const finish = () => {
   // eslint-disable-next-line new-cap
