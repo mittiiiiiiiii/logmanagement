@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/named, no-unused-vars
 import start from './timer.js';
+import { get } from '../../request.js';
 
 // 受け取ったメッセージと返信するメッセージ(を返す関数)をマッピング
 export const messageMap = {
@@ -12,17 +13,11 @@ export const messageMap = {
     return {
       type: 'text',
       text: '計測をスタートしました！',
-    },
-  ]),
-  テスト: async () => {
-    const gptResponse = await generateGptResponse('テスト');
-    return {
-      type: 'text',
-      text: `${gptResponse}`,
     };
   },
   天気予報: async () => {
     // axiosを使ってAPIにGETリクエストを送り、レスポンスのdataを変数resに格納
+    // eslint-disable-next-line no-undef
     const weatherApiRes = (await get('https://www.jma.go.jp/bosai/forecast/data/forecast/070000.json')).data;
     // 返信するメッセージを作成
     return {
