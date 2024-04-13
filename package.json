@@ -13,7 +13,7 @@
   "dependencies": {
     "@line/bot-sdk": "^7.5.0",
     "aws-sdk": "^2.1187.0",
-    "axios": "^0.27.2",
+    "axios": "^1.6.8",
     "dotenv": "^16.0.1",
     "express": "^4.19.2"
   },
