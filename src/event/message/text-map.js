@@ -9,10 +9,10 @@ export const messageMap = {
     text: 'こんにちは！これからあなたの生活をサポートします！',
   }),
   start: async () => {
-    await start();
+    const returnmessage = await start();
     return {
       type: 'text',
-      text: '計測をスタートしました！',
+      text: `${returnmessage}`,
     };
   },
   天気予報: async () => {
