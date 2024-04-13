@@ -28,7 +28,7 @@ export const generateGptResponse = async (prompt) => {
     return generatedText;
   } catch (error) {
     // エラーが発生した場合は、そのエラーをコンソールに出力する
-    console.error(error);
+    // console.error(error);
     return 'エラーが発生しました';
   }
 };
