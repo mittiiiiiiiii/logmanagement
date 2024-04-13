@@ -7,6 +7,53 @@ export const messageMap = {
     type: 'text',
     text: 'こんにちは！これからあなたの生活をサポートします！',
   }),
+  計測: ()=>({
+    type:'text',
+    text:'tap to start',
+    quickReply:{
+      items:[
+        {
+          type:'action',
+          action:{
+            type:'message',
+            text:'start',
+            label:'start',
+          }
+        },
+        {
+          type:'action',
+          action:{
+            type:'message',
+            text:'finish',
+            label:'finish',
+          }
+        },
+        {
+          type:'action',
+          action:{
+            type:'message',
+            text:'result',
+            label:'result',
+          }
+        },
+        
+      ]
+    }
+  }),
+  
+start:()=>({
+    type:'postback',
+    data:'start',
+  }),
+  finish:()=>({
+    type:'postback',
+    data:'finish',
+  }),
+  result:()=>({
+    type:'postback',
+    data:'result',
+  }),
+  
   複数メッセージ: () => ([
     {
       type: 'text',
@@ -37,3 +84,5 @@ export const messageMap = {
     };
   },
 };
+
+
