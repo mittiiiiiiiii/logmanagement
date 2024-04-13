@@ -1,5 +1,15 @@
 import { hasKey } from '../../haskey.js';
 import { messageMap } from './text-map.js';
+import { generateGptResponse } from './generateGptResponse.js';
+
+export const otherMessage = async (event) => {
+  const gptResponse = await generateGptResponse(event.message.text);
+  console.log(event.message.text);
+  return {
+    type: 'text',
+    text: `${gptResponse}`,
+  };
+};
 
 // テキストメッセージの処理をする関数
 export const textEvent = async (event, appContext) => {
@@ -12,8 +22,5 @@ export const textEvent = async (event, appContext) => {
   }
 
   // 返信するメッセージが存在しない場合
-  return {
-    type: 'text',
-    text: `受け取ったメッセージ: ${receivedMessage}\nそのメッセージの返信には対応してません...`,
-  };
+  return otherMessage(event, appContext);
 };

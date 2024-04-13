@@ -21,17 +21,28 @@ connection.connect((error) => {
 });
 
 export default function start() {
-  // eslint-disable-next-line new-cap
-  const starttime = Date.now();
-  connection.query(
-    'insert into timer (time, flag) values (?, ?)',
-    [Math.floor(starttime / 1000), 1],
-    (error) => {
+  return new Promise((resolve, reject) => {
+    connection.query('SELECT flag FROM timer ORDER BY time DESC LIMIT 1', (error, results) => {
       if (error) {
-        throw error;
+        reject(error);
       }
-    },
-  );
+      if (results[0].flag === 1) {
+        resolve('計測中です！');
+      }
+      const starttime = Date.now();
+      connection.query(
+        'insert into timer (time, flag) values (?, ?)',
+        [starttime / 1000, 1],
+        // eslint-disable-next-line no-shadow
+        (error) => {
+          if (error) {
+            reject(error);
+          }
+        },
+      );
+      resolve('計測をスタートしました！');
+    });
+  });
 }
 
 export default function stop(){
