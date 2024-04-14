@@ -10,8 +10,14 @@ export const postbackHandler = (event) => {
       type: 'text',
       text: `日時データを受け取りました！\ndata: ${postbackData}\ndatetime: ${event.postback.params.datetime}`,
     };
-    // 存在しない場合
-  } else {
+  } else if (postbackData === 'start') { // もしポストバックデータが'こんにちは'である場合
+    // 返信するメッセージを作成
+    message = {
+      type: 'text',
+      text: 'こんにちは！あなたの生活をサポートします！',
+    };
+  // それ以外の場合
+  } else { // 存在しない場合
     // 返信するメッセージを作成
     message = {
       type: 'text',
