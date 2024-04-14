@@ -1,0 +1,70 @@
+curl -v -X POST https://api.line.me/v2/bot/richmenu \
+-H 'Authorization: Bearer {cJkt6EArAttL0fbj7TL2jB8SfJ/5zPzDSPnBsVW6IBg9w/M8tqiqOUFmRcdO6h2iu1H+FMeXQORBSAQpR5TsLxP9SRiLeaeZw0Y0u24TE3d5ZLdT5xzILxM30T6g/avGZWwxNOIBUwdrMdaNVQ7X/gdB04t89/1O/w1cDnyilFU=}' \
+-H 'Content-Type: application/json' \
+-d \
+'{
+        "size": {
+            "width": 2500,
+            "height": 843
+        },
+        "selected": false,
+        "name": "richmenu-run",
+        "chatBarText": "メニュー1",
+        "areas": [
+            
+            {
+                "bounds": {
+                    "x": 10,
+                    "y": 0,
+                    "width": 820,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "start",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 10,
+                    "y": 210,
+                    "width": 820,
+                    "height": 600
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "start",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/start"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 830,
+                    "y": 210,
+                    "width": 1660,
+                    "height": 600
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "finish",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/finish"
+                }
+            },
+        
+            {
+                "bounds": {
+                    "x": 1670,
+                    "y": 210,
+                    "width": 1670,
+                    "height": 600
+                },
+                "action": {
+                    "type":"postback",
+                    "data": "result",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/result"
+                }
+            }
+        ]
+    }
+'
