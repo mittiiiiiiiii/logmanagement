@@ -14,13 +14,13 @@ export const postbackHandler = async (event) => {
       type: 'text',
       text: `日時データを受け取りました！\ndata: ${postbackData}\ndatetime: ${event.postback.params.datetime}`,
     };
-  } else if (postbackData === 'start') { // もしポストバックデータが'こんにちは'である場合
+  } else if (postbackData === 'start') {
     const returnmessage = await start();
     message = {
       type: 'text',
       text: `${returnmessage}`,
     };
-  } else if (postbackData === 'finish') { // もしポストバックデータが'こんにちは'である場合
+  } else if (postbackData === 'finish') {
     const returnmessage = await stop();
     const gptResponse = await generateGptResponse(`ランを${returnmessage}やりました。レビューしてください`);
     message = {
