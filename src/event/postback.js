@@ -1,5 +1,8 @@
+// eslint-disable-next-line import/no-unresolved
+import start from './message/timer.js';
+
 // ポストバックイベントが飛んできた時
-export const postbackHandler = (event) => {
+export const postbackHandler = async (event) => {
   let message;
   // ポストバックデータをpostbackDataに格納
   const postbackData = event.postback.data;
@@ -10,8 +13,13 @@ export const postbackHandler = (event) => {
       type: 'text',
       text: `日時データを受け取りました！\ndata: ${postbackData}\ndatetime: ${event.postback.params.datetime}`,
     };
-    // 存在しない場合
-  } else {
+  } else if (postbackData === 'start') { // もしポストバックデータが'こんにちは'である場合
+    const returnmessage = await start();
+    message = {
+      type: 'text',
+      text: `${returnmessage}`,
+    };
+  } else { // 存在しない場合
     // 返信するメッセージを作成
     message = {
       type: 'text',
