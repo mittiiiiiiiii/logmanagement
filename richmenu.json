@@ -1,4 +1,101 @@
-[
+{
+        "size": {
+            "width": 2500,
+            "height": 843
+        },
+        "selected": false,
+        "name": "richmenu-run",
+        "chatBarText": "メニュー1",
+        "areas": [
+           
+            {
+                //2
+                "bounds": {
+                    "x": 830,
+                    "y": 0,
+                    "width": 1660,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "swim",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/finish"
+                }
+            },
+        
+            {
+                //3
+                "bounds": {
+                    "x": 1670,
+                    "y": 0,
+                    "width": 1670,
+                    "height": 200
+                },
+                "action": {
+                    "type":"postback",
+                    "data": "bicycle",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/result"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 10,
+                    "y": 0,
+                    "width": 820,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "start",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 10,
+                    "y": 210,
+                    "width": 820,
+                    "height": 600
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "start",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/start"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 830,
+                    "y": 210,
+                    "width": 1660,
+                    "height": 600
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "result",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/finish"
+                }
+            },
+        
+            {
+                "bounds": {
+                    "x": 1670,
+                    "y": 210,
+                    "width": 1670,
+                    "height": 600
+                },
+                "action": {
+                    "type":"postback",
+                    "data": "result",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/result"
+                }
+            }
+        ]
+    };
+/////////////////////////////
+/////////////////////////////
+///////////////////////////
+
     {
         "size": {
             "width": 2500,
@@ -8,6 +105,121 @@
         "name": "richmenu-run",
         "chatBarText": "メニュー1",
         "areas": [
+            {
+                //1
+                "bounds": {
+                    "x": 10,
+                    "y": 0,
+                    "width": 820,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "run",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/start"
+                }
+            },
+            
+        
+            {
+                //3
+                "bounds": {
+                    "x": 1670,
+                    "y": 0,
+                    "width": 1670,
+                    "height": 200
+                },
+                "action": {
+                    "type":"postback",
+                    "data": "swim",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/result"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 10,
+                    "y": 0,
+                    "width": 820,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "start",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 10,
+                    "y": 210,
+                    "width": 820,
+                    "height": 600
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "start",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/start"
+                }
+            },
+            {
+                "bounds": {
+                    "x": 830,
+                    "y": 210,
+                    "width": 1660,
+                    "height": 600
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "result",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/finish"
+                }
+            }
+            
+        ]
+    }
+    ////////////////////////
+    ///////////////////////
+    ///////////////////////
+
+
+    {
+        "size": {
+            "width": 2500,
+            "height": 843
+        },
+        "selected": false,
+        "name": "richmenu-run",
+        "chatBarText": "メニュー1",
+        "areas": [
+            {
+                //1
+                "bounds": {
+                    "x": 10,
+                    "y": 0,
+                    "width": 820,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "run",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/start"
+                }
+            },
+            {
+                //2
+                "bounds": {
+                    "x": 830,
+                    "y": 0,
+                    "width": 1660,
+                    "height": 200
+                },
+                "action": {
+                    "type": "postback",
+                    "data": "run",
+                    "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/finish"
+                }
+            },
+        
             
             {
                 "bounds": {
@@ -44,7 +256,7 @@
                 },
                 "action": {
                     "type": "postback",
-                    "data": "finish",
+                    "data": "result",
                     "url":"https://7d9b-211-120-127-222.ngrok-free.app/timer/finish"
                 }
             },
@@ -63,102 +275,7 @@
                 }
             }
         ]
-    },
-
-    {
-        "size": {
-            "width": 2500,
-            "height": 843
-        },
-        "selected": false,
-        "name": "richmenu-swim",
-        "chatBarText": "メニュー2",
-        "areas": [
-            {
-                "bounds": {
-                    "x": 10,
-                    "y": 10,
-                    "width": 820,
-                    "height": 808
-                },
-                "action": {
-                    "type": "postback",
-                    "data": "start"
-                }
-            },
-            {
-                "bounds": {
-                    "x": 830,
-                    "y": 10,
-                    "width": 1660,
-                    "height": 808
-                },
-                "action": {
-                    "type": "postback",
-                    "data": "finish"
-                }
-            },
-        
-            {
-                "bounds": {
-                    "x": 1670,
-                    "y": 10,
-                    "width": 1670,
-                    "height": 808
-                },
-                "action": {
-                    "type":"postback",
-                    "data": "result"
-                }
-            }
-        ]
-    },
-
-    {
-        "size": {
-            "width": 2500,
-            "height": 843
-        },
-        "selected": false,
-        "name": "richmenu-bicycle",
-        "areas": [
-            {
-                "bounds": {
-                    "x": 10,
-                    "y": 10,
-                    "width": 820,
-                    "height": 808
-                },
-                "action": {
-                    "type": "postback",
-                    "data": "start"
-                }
-            },
-            {
-                "bounds": {
-                    "x": 830,
-                    "y": 10,
-                    "width": 1660,
-                    "height": 808
-                },
-                "action": {
-                    "type": "postback",
-                    "data": "finish"
-                }
-            },
-        
-            {
-                "bounds": {
-                    "x": 1670,
-                    "y": 10,
-                    "width": 1670,
-                    "height": 808
-                },
-                "action": {
-                    "type":"postback",
-                    "data": "result"
-                }
-            }
-        ]
     }
-]
+
+
+    
