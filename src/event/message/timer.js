@@ -45,60 +45,61 @@ export default function start() {
   });
 }
 
-export function stop(){
-  let finishtime = new Date.now();
-    let elapsedtime,alltime;
-    connection.query(
-        `select * from timer order by time desc;`,
-        (error,results)=>{
-          if(error){
-            throw error;
-          }
-            elapsedtime = Math.floor(finishtime / 1000) - results[0].time;
-        }
-    );
-    connection.query(
-      `update timer set flag 1 where flag = 0`,
-      (error,results)=>{
-        if(error){
-          throw error;
-        }
+export async function stop() {
+  const finishtime = Date.now();
+  let elapsedtime;
+  const kyougi = 'ラン';
+  let alltime;
+
+  // eslint-disable-next-line prefer-const
+  elapsedtime = await new Promise((resolve, reject) => {
+    connection.query('SELECT time FROM timer ORDER BY time DESC LIMIT 1', (error, results) => {
+      if (error) {
+        reject(error);
       }
-    );
-    /*
+      resolve(Math.floor(finishtime / 1000) - results[0].time);
+    });
+  });
+
+  await new Promise((resolve, reject) => {
     connection.query(
-      `select * from result where kyougi = ? order by time desc;`,
-      [kyougi],
-      (error,results)=>{
-        if(error){
-          throw error;
+      'update timer set flag = 0 where flag = 1',
+      (error) => {
+        if (error) {
+          reject(error);
         }
-        alltime = results[0].time + elapsedtime;
-      }
+        resolve();
+      },
     );
-    */
+  });
+
+  await new Promise((resolve, reject) => {
     connection.query(
-      `insert into result (time) values (?);`,
-      [kyougi,alltime],
-      (error,results)=>{
-        if(error){
-          throw error;
+      'insert into result (name, time) values (?, ?)',
+      [kyougi, elapsedtime],
+      (error) => {
+        if (error) {
+          reject(error);
         }
-      }
+        resolve();
+      },
     );
-    let second = elapsedtime % 60;
-    let minute = Math.floor(elapsedtime /60) % 60;
-    let hour = Math.floor(elapsedtime / 3600);
-    let allsecond = alltime % 60;
-    let allminute = Math.floor(alltime / 60) % 60;
-    let allhour = Math.floor(alltime / 3600);
-    let resulttime = {
-        second: second,
-        minute: minute,
-        hour: hour,
-        allsecond:allsecond,
-        allminute:allminute,
-        allhour:allhour,
-    }
-    return resulttime;
+  });
+
+  const second = elapsedtime % 60;
+  const minute = Math.floor(elapsedtime / 60) % 60;
+  const hour = Math.floor(elapsedtime / 3600);
+  const allsecond = alltime % 60;
+  const allminute = Math.floor(alltime / 60) % 60;
+  const allhour = Math.floor(alltime / 3600);
+  const resulttime = {
+    second,
+    minute,
+    hour,
+    allsecond,
+    allminute,
+    allhour,
+  };
+  const formattedTime = `${resulttime.hour.toString().padStart(2, '0')}:${resulttime.minute.toString().padStart(2, '0')}:${resulttime.second.toString().padStart(2, '0')}`;
+  return formattedTime;
 }
