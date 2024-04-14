@@ -100,5 +100,6 @@ export async function stop() {
     allminute,
     allhour,
   };
-  return resulttime;
+  const formattedTime = `${resulttime.hour.toString().padStart(2, '0')}:${resulttime.minute.toString().padStart(2, '0')}:${resulttime.second.toString().padStart(2, '0')}`;
+  return formattedTime;
 }

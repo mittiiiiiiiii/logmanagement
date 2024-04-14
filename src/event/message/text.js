@@ -1,6 +1,6 @@
 import { hasKey } from '../../haskey.js';
 import { messageMap } from './text-map.js';
-import { generateGptResponse } from './generateGptResponse.js';
+import { generateGptResponse } from '../generateGptResponse.js';
 
 export const otherMessage = async (event) => {
   const gptResponse = await generateGptResponse(event.message.text);

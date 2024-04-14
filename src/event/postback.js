@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import start, { stop } from './message/timer.js';
+import { generateGptResponse } from './generateGptResponse.js';
 
 // ポストバックイベントが飛んできた時
 export const postbackHandler = async (event) => {
@@ -21,10 +22,11 @@ export const postbackHandler = async (event) => {
     };
   } else if (postbackData === 'finish') { // もしポストバックデータが'こんにちは'である場合
     const returnmessage = await stop();
-    const formattedTime = `${returnmessage.hour.toString().padStart(2, '0')}:${returnmessage.minute.toString().padStart(2, '0')}:${returnmessage.second.toString().padStart(2, '0')}`;
+    const gptResponse = await generateGptResponse(`ランを${returnmessage}やりました。レビューしてください`);
     message = {
       type: 'text',
-      text: formattedTime,
+      text: `時間 ${returnmessage}\n${gptResponse}`,
+    // eslint-disable-next-line no-sequences
     };
   } else { // 存在しない場合
     // 返信するメッセージを作成

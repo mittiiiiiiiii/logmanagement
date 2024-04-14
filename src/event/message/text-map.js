@@ -8,13 +8,6 @@ export const messageMap = {
     type: 'text',
     text: 'こんにちは！これからあなたの生活をサポートします！',
   }),
-  start: async () => {
-    const returnmessage = await start();
-    return {
-      type: 'text',
-      text: `${returnmessage}`,
-    };
-  },
   天気予報: async () => {
     // axiosを使ってAPIにGETリクエストを送り、レスポンスのdataを変数resに格納
     // eslint-disable-next-line no-undef
